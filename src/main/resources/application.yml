@@ -1,0 +1,11 @@
+
+spring:
+    application:
+      name: poc-tracabilite
+    datasource:
+      url: jdbc:postgresql://localhost:5432/tracabilite
+      username: postgres
+      password: postgres
+    jpa:
+      hibernate:
+        ddl-auto: none
