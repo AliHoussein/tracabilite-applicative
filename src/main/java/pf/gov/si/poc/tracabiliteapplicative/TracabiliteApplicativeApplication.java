@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @EnableJpaAuditing
 public class TracabiliteApplicativeApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(TracabiliteApplicativeApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(TracabiliteApplicativeApplication.class, args);
+  }
 
 }

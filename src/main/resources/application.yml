@@ -1,12 +1,25 @@
+spring:
+  application:
+    name: poc-tracabilite
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tracabilite
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      # Hibernate ddl auto (create, create-drop, validate, update)
+      ddl-auto: none
+
+---
 
 spring:
-    application:
-      name: poc-tracabilite
-    datasource:
-      url: jdbc:postgresql://localhost:5432/tracabilite
-      username: postgres
-      password: postgres
-    jpa:
-      hibernate:
-        # Hibernate ddl auto (create, create-drop, validate, update)
-        ddl-auto: update
+  profiles: dev
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+logging:
+  level:
+    root: INFO
+    org.springframework.web: ERROR
+    pf.gov.si.poc: DEBUG
+    org.hibernate: ERROR
