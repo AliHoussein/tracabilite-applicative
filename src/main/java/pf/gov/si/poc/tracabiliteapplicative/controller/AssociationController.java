@@ -1,6 +1,7 @@
 package pf.gov.si.poc.tracabiliteapplicative.controller;
 
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import pf.gov.si.poc.tracabiliteapplicative.dto.AssociationDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +11,7 @@ import pf.gov.si.poc.tracabiliteapplicative.service.AssociationService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/associations")
+@RequestMapping("/api/v1/associations")
 public class AssociationController {
     @Autowired
     AssociationService associationService;

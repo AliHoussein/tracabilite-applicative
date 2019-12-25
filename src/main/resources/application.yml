@@ -10,6 +10,19 @@ spring:
       # Hibernate ddl auto (create, create-drop, validate, update)
       ddl-auto: none
 
+security:
+  oauth2:
+    resource:
+      client-id: idp-poc-sipf
+    resource-server:
+        issuer-uri: http://localhost:8080/auth/realms/sipf-poc
+        token-info-uri: ${security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/token/introspect
+        user-info-uri: ${security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/userinfo
+        pulblic-key: -----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxlFyIO5J/bwWnboiEUCVEoG7NqOZAQ3L5VhLQa+MnW1sHHu5qODIrXVYSdyvLALkgxdaKSguJbFd5mPtY7HtnswoVqaHt2pVdcZlIHyHN7DQnV2v3DyBramA4uddbkJB8RWrVlmyClBEu2dJOkj6Do8Stc1hvlq1Ecgo1SXmaNRsaoyQKVpx8riEJzCFLMuUvM1AYjDyEAxBjtPcSsqUgQ6wWFY4gICWlG4Q+eXg5lVkzxk6p591oi5nr5/eXxGBmjlB0uJ8kAkU47+mVOF64jeMQpx0tQHUzIEHB939t2Zc8iV8f8+KR4kY8fU4XJmHzgtZaT+ozlGI62tUEGP9VQIDAQAB\n-----END PUBLIC KEY-----
+
+server:
+  port: 9090
+
 ---
 
 spring:
