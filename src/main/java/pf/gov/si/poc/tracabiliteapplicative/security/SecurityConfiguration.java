@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -13,6 +14,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(final HttpSecurity http) throws Exception {
+
     http
         .csrf().ignoringAntMatchers("/api/**")
         .and()
@@ -25,7 +27,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .antMatchers(HttpMethod.OPTIONS).permitAll()
         .anyRequest().authenticated()
         .and()
-        .oauth2ResourceServer()
-        .jwt();
+        .oauth2ResourceServer().jwt()
+        .jwtAuthenticationConverter(new CustomJwtAuthenticationConverter("idp-poc-sipf"));
   }
 }

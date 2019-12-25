@@ -16,21 +16,25 @@ public class AssociationController {
     @Autowired
     AssociationService associationService;
 
+    @PreAuthorize("hasRole('ROLE_ASSOCIATIONS_MASTER')")
     @GetMapping
     public List<Association> getAssociations() {
         return associationService.getAssociations();
     }
 
+    @PreAuthorize("hasRole('ROLE_ASSOCIATIONS_MASTER')")
     @PostMapping
     public void createAssociation(@RequestBody AssociationDto associationDto) {
         associationService.add(associationDto);
     }
 
+    @PreAuthorize("hasRole('ROLE_ASSOCIATIONS_MASTER')")
     @GetMapping("/{id}")
     public Association getAssociationById(@PathVariable long id) {
         return associationService.getAssociationById(id);
     }
 
+    @PreAuthorize("hasRole('ROLE_ASSOCIATIONS_MASTER')")
     @DeleteMapping("/{id}")
     public void deleteAssociation(@PathVariable long id) {
         associationService.delete(id);
