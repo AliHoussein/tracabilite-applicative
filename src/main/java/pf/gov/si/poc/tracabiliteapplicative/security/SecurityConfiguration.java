@@ -23,11 +23,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .and()
         .authorizeRequests()
         .antMatchers(HttpMethod.OPTIONS).permitAll()
-        .anyRequest().permitAll();
-
-//        .and()
-//        .oauth2ResourceServer()
-//        .jwt();
-
+        .anyRequest().authenticated()
+        .and()
+        .oauth2ResourceServer()
+        .jwt();
   }
 }
