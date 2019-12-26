@@ -35,6 +35,13 @@ public class AssociationController {
     }
 
     @PreAuthorize("hasRole('ROLE_ASSOCIATIONS_MASTER')")
+    @PutMapping("/{id}")
+    public Association updateAssociation(@PathVariable long id, @RequestBody AssociationDto associationDto) {
+        return associationService.updateAssociation(id, associationDto);
+    }
+
+
+    @PreAuthorize("hasRole('ROLE_ASSOCIATIONS_MASTER')")
     @DeleteMapping("/{id}")
     public void deleteAssociation(@PathVariable long id) {
         associationService.delete(id);

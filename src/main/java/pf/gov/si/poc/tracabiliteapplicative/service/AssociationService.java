@@ -16,7 +16,7 @@ public class AssociationService {
   AssociationRepository associationRepository;
 
   public void add(AssociationDto associationDto) {
-    associationRepository.save(toEntity(associationDto));
+    associationRepository.save(toEntity(new Association(), associationDto));
   }
 
   public void delete(long id) {
@@ -32,8 +32,17 @@ public class AssociationService {
     return optionalAssociation.orElseThrow(() -> new AssociationNotFoundException(id));
   }
 
-  private Association toEntity(AssociationDto associationDto) {
-    Association association = new Association();
+  public Association updateAssociation(long id, AssociationDto associationDto) {
+    Association association = associationRepository.findById(id)
+        .orElseThrow(() -> new AssociationNotFoundException(id));
+
+    toEntity(association, associationDto);
+    associationRepository.save(association);
+
+    return association;
+  }
+
+  private Association toEntity(Association association, AssociationDto associationDto) {
     association.setNom(associationDto.getNom());
     association.setNumeroTahiti(associationDto.getNumeroTahiti());
     return association;
