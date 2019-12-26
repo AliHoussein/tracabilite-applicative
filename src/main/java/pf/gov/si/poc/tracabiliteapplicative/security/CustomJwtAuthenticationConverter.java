@@ -49,6 +49,4 @@ public class CustomJwtAuthenticationConverter implements Converter<Jwt, Abstract
           .collect(Collectors.toSet());
     return Collections.emptySet();
   }
-
-
 }

@@ -12,6 +12,6 @@ public class Agent {
 
   @Override
   public String toString() {
-    return String.format("Agent %s %s (%s / %s)", prenom, nom, username, email);
+    return String.format("%s %s (%s)", prenom, nom, username);
   }
 }
