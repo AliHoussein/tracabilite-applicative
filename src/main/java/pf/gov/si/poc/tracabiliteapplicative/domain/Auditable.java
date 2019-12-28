@@ -3,7 +3,6 @@ package pf.gov.si.poc.tracabiliteapplicative.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
-import org.javers.core.metamodel.annotation.DiffIgnore;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;

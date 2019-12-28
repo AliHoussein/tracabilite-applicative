@@ -6,7 +6,6 @@ import org.javers.repository.jql.QueryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pf.gov.si.poc.tracabiliteapplicative.domain.Association;
-import pf.gov.si.poc.tracabiliteapplicative.repository.AssociationRepository;
 
 import java.util.List;
 

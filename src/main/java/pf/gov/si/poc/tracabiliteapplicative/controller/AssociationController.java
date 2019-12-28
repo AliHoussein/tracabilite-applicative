@@ -1,11 +1,11 @@
 package pf.gov.si.poc.tracabiliteapplicative.controller;
 
 
-import org.springframework.security.access.prepost.PreAuthorize;
-import pf.gov.si.poc.tracabiliteapplicative.dto.AssociationDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pf.gov.si.poc.tracabiliteapplicative.domain.Association;
+import pf.gov.si.poc.tracabiliteapplicative.dto.AssociationDto;
 import pf.gov.si.poc.tracabiliteapplicative.service.AssociationService;
 
 import java.util.List;
