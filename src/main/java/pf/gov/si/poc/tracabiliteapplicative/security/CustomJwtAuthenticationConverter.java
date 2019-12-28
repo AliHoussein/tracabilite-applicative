@@ -30,11 +30,14 @@ public class CustomJwtAuthenticationConverter implements Converter<Jwt, Abstract
 
   @Override
   public AbstractAuthenticationToken convert(final Jwt source) {
-    Collection<GrantedAuthority> authorities = Stream.concat(defaultGrantedAuthoritiesConverter.convert(source)
-            .stream(),
+    Collection<GrantedAuthority> authorities = Stream.concat(defaultGrantedAuthoritiesConverter.convert(source).stream(),
         extractResourceRoles(source, resourceId).stream())
         .collect(Collectors.toSet());
-    return new JwtAuthenticationToken(source, authorities);
+
+    String name = String.format("%s %s (%s)", source.getClaimAsString("given_name"), source.getClaimAsString(
+        "family_name"), source.getClaimAsString("user_name"));
+
+    return new JwtAuthenticationToken(source, authorities, name);
   }
 
   private static Collection<? extends GrantedAuthority> extractResourceRoles(final Jwt jwt, final String resourceId) {

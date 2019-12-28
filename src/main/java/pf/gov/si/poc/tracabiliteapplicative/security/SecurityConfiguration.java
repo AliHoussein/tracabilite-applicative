@@ -10,6 +10,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+  private static final String RESSOURCE_ID_FOR_ROLE_AUTHORISATIONS = "idp-poc-sipf";
 
   @Override
   protected void configure(final HttpSecurity http) throws Exception {
@@ -27,6 +28,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .anyRequest().authenticated()
         .and()
         .oauth2ResourceServer().jwt()
-        .jwtAuthenticationConverter(new CustomJwtAuthenticationConverter("idp-poc-sipf"));
+        .jwtAuthenticationConverter(new CustomJwtAuthenticationConverter(RESSOURCE_ID_FOR_ROLE_AUTHORISATIONS));
   }
 }
