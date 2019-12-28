@@ -28,6 +28,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create-drop
+  datasource:
+    initialization-mode: always
+    continue-on-error: true
 
 logging:
   level:
