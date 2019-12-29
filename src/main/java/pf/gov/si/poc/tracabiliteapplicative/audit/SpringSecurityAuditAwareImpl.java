@@ -1,11 +1,11 @@
 package pf.gov.si.poc.tracabiliteapplicative.audit;
 
+import java.util.Optional;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import java.util.Optional;
 
 class SpringSecurityAuditAwareImpl implements AuditorAware<String> {
 

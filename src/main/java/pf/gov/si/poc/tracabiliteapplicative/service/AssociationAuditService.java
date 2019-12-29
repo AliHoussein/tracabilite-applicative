@@ -9,6 +9,7 @@ import pf.gov.si.poc.tracabiliteapplicative.domain.Association;
 
 import java.util.List;
 
+
 @Component
 public class AssociationAuditService {
   @Autowired
@@ -25,7 +26,8 @@ public class AssociationAuditService {
 
   public String getAssociationChangeById(long id) {
     Association association = associationService.getAssociationById(id);
-    QueryBuilder jqlQuery = QueryBuilder.byInstance(association).withChildValueObjects();
+    QueryBuilder jqlQuery = QueryBuilder.byInstance(association)
+        .withChildValueObjects();
     List<Change> changes = javers.findChanges(jqlQuery.build());
     return javers.getJsonConverter().toJson(changes);
   }
